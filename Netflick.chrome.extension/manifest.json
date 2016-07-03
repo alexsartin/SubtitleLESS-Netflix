@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Netflick",
+  "version": "1.0",
+  "description": "This app: removes Netflix subtitles, automatically skips to next episode and removes \"are you still watching\" question.",
+  "icons": {"256": "icon.png"},
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "css": [ "styles.css"],
+      "matches": ["http://www.netflix.com/*"],
+      "js": ["jquery-1.8.3.min.js", "eatoast.js", "content.js"],
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": ["activeTab", "tabs"],
+  "web_accessible_resources": ["a.css"]
+}
